@@ -2,9 +2,9 @@
 #include <fstream>
 #include <string>
 #include <set>
-#include<sstream> //iss(istringstream),oss(ostringstream) kullanmak için
-#include <windows.h> //komut ekranýna renk vermek için
-#include <locale.h> //setlocale, türkçe karakter için yazýlabilir.yazmasak da olur.
+#include<sstream> //iss(istringstream),oss(ostringstream) kullanmak iÃ§in
+#include <windows.h> //komut ekranÃ½na renk vermek iÃ§in
+#include <locale.h> //setlocale, tÃ¼rkÃ§e karakter iÃ§in yazÃ½labilir.yazmasak da olur.
 #include <algorithm> // Include this for all_of
 #include <cctype>    // Include this for isdigit
 using namespace std;
@@ -28,7 +28,7 @@ void ogrenciNotGuncelle(int ogrenciNo);
 
 int main() {
 	setlocale(LC_ALL, "Turkish");
-	system("color 30"); //komut ekranýný renklendiriyoruz
+	system("color 30"); //komut ekranÃ½nÃ½ renklendiriyoruz
 	girisEkrani();
 
 
@@ -37,16 +37,16 @@ int main() {
 	while (devam)
 	{
 		anaMenu();
-		cout << "Ana menüye mi gitmek istersiniz yoksa çýkýþ mý yapmak istersiniz? (ana menü: 1, çýkýþ: 0 ): ";
+		cout << "Ana menÃ¼ye mi gitmek istersiniz yoksa Ã§Ã½kÃ½Ã¾ mÃ½ yapmak istersiniz? (ana menÃ¼: 1, Ã§Ã½kÃ½Ã¾: 0 ): ";
 		cin >> devam;
 
 		if(devam!=1 && devam!=0)
 		{
-			cout << "Hatalý deðer girdiniz.";
+			cout << "HatalÃ½ deÃ°er girdiniz.";
 		}
 	}
 
-	cout << "Çýkýþ yapýlýyor.Hoþçakalýn..." << endl;
+	cout << "Ã‡Ã½kÃ½Ã¾ yapÃ½lÃ½yor.HoÃ¾Ã§akalÃ½n..." << endl;
 
 
 	return 0;
@@ -62,7 +62,7 @@ void ogrenciEkle()
 	system("cls");
 
 
-	cout << "\t \t \t-----------1)Öðrenci Ekleme Ekraný-----------" << endl << endl;
+	cout << "\t \t \t-----------1)Ã–Ã°renci Ekleme EkranÃ½-----------" << endl << endl;
 
 	char devam;
 
@@ -73,18 +73,18 @@ void ogrenciEkle()
 		ogrenciNo = sonNo();
 		ogrenciNo++;
 
-		cout << "Yeni öðrencinin numarasý= " << ogrenciNo << endl;
+		cout << "Yeni Ã¶Ã°rencinin numarasÃ½= " << ogrenciNo << endl;
 
 
 		string ogrenciAdi, ogrenciSoyadi, ogrenciTc;
 
 
 
-		cout << "Öðrenci adýný giriniz= ";
+		cout << "Ã–Ã°renci adÃ½nÃ½ giriniz= ";
 		cin.ignore();
 		getline(cin, ogrenciAdi);
 
-		cout << "Öðrenci soyadýný giriniz= ";
+		cout << "Ã–Ã°renci soyadÃ½nÃ½ giriniz= ";
 		getline(cin, ogrenciSoyadi);
 		cout << endl;
 
@@ -92,7 +92,7 @@ void ogrenciEkle()
 		bool gecerliTc = false;
 		do
 		{
-			cout << "Öðrenci TC'sini giriniz (11 haneli)= ";
+			cout << "Ã–Ã°renci TC'sini giriniz (11 haneli)= ";
 			cin >> ogrenciTc;
 
 			if (ogrenciTc.length() == 11 && all_of(ogrenciTc.begin(), ogrenciTc.end(), ::isdigit))
@@ -101,7 +101,7 @@ void ogrenciEkle()
 			}
 			else
 			{
-				cout << "Geçersiz TC kimlik numarasý. 11 haneli olmalý ve sadece rakamlardan oluþmalýdýr.\n\n";
+				cout << "GeÃ§ersiz TC kimlik numarasÃ½. 11 haneli olmalÃ½ ve sadece rakamlardan oluÃ¾malÃ½dÃ½r.\n\n";
 			}
 		} while (gecerliTc == false);// !gecerliTc
 
@@ -117,15 +117,15 @@ void ogrenciEkle()
 			OgrenciDosyasi << ogrenciNo << '#' << ogrenciAdi << '#' << ogrenciSoyadi << '#' << ogrenciTc << "\n";
 			OgrenciDosyasi.close();
 
-			cout << " Öðrenci ekleme iþlemi baþarýyla tamamlandý. " << endl << endl;
+			cout << " Ã–Ã°renci ekleme iÃ¾lemi baÃ¾arÃ½yla tamamlandÃ½. " << endl << endl;
 		}
 		else
 		{
-			cout << "Dosya acýlamadi.Sorry. ";
+			cout << "Dosya acÃ½lamadi.Sorry. ";
 		}
 
 
-		cout << "Öðrenci eklemeye devam etmek istiyor musunuz ? (evet:e/ hayýr:h) : ";
+		cout << "Ã–Ã°renci eklemeye devam etmek istiyor musunuz ? (evet:e/ hayÃ½r:h) : ";
 		cin >> devam;
 
 	} while (devam == 'e');
@@ -142,7 +142,7 @@ int sonNo()
 
 	if (!OgrenciDosyasi.is_open())
 	{
-		cout << "Dosya Açýlamadý.";
+		cout << "Dosya AÃ§Ã½lamadÃ½.";
 		return -1;
 	}
 
@@ -174,12 +174,12 @@ int ogrenciSil()
 {
 
 
-	cout << "\t \t \t----------- 2)Öðrenci silme iþlemi -----------" << endl;
+	cout << "\t \t \t----------- 2)Ã–Ã°renci silme iÃ¾lemi -----------" << endl;
 	char secim;
 	do {
 
 		int ogrenciNo;
-		cout << "Silmek istediðiniz öðrencinin numarasýný giriniz: ";
+		cout << "Silmek istediÃ°iniz Ã¶Ã°rencinin numarasÃ½nÃ½ giriniz: ";
 		cin >> ogrenciNo;
 
 		string satir, No;
@@ -188,7 +188,7 @@ int ogrenciSil()
 
 		if (!OgrenciDosyasi.is_open() || !Ogrenci_Temp.is_open())
 		{
-			cout << " Dosya Açýlamadý! ";
+			cout << " Dosya AÃ§Ã½lamadÃ½! ";
 			return -1;
 		}
 		bool silindi = false;
@@ -200,7 +200,7 @@ int ogrenciSil()
 				istringstream iss(satir);
 				getline(iss, No, '#');
 
-				if (stoi(No) != ogrenciNo) //okunan satýrdaki sileceðimiz öðrenci deðil,o zaman onu temp dosyasýna yaz.silinmesin.
+				if (stoi(No) != ogrenciNo) //okunan satÃ½rdaki sileceÃ°imiz Ã¶Ã°renci deÃ°il,o zaman onu temp dosyasÃ½na yaz.silinmesin.
 				{
 					Ogrenci_Temp << satir << endl;
 				}
@@ -217,14 +217,14 @@ int ogrenciSil()
 		rename("Ogrenci_Temp.txt", "Ogrenci.txt");
 
 		if (silindi) {
-			cout << "Öðrenci baþarýyla silindi." << endl;
+			cout << "Ã–Ã°renci baÃ¾arÃ½yla silindi." << endl;
 		}
 		else /*(!silindi)*/
 		{
-			cout << "Öðrenci bulunamadý." << endl;
+			cout << "Ã–Ã°renci bulunamadÃ½." << endl;
 		}
 
-		cout << "Öðrenci silmeye devam etmek istiyor musunuz ? (evet:e/ hayýr:h) : ";
+		cout << "Ã–Ã°renci silmeye devam etmek istiyor musunuz ? (evet:e/ hayÃ½r:h) : ";
 		cin >> secim;
 
 
@@ -240,7 +240,7 @@ void ogrenciGuncelle(int ogrenciNo)
 {
 	string satir, No, isim, soyisim, ogrenciTc;
 
-	bool ogrenciBulundu = false; // Öðrenci bulunup bulunmadýðýný kontrol etmek için
+	bool ogrenciBulundu = false; // Ã–Ã°renci bulunup bulunmadÃ½Ã°Ã½nÃ½ kontrol etmek iÃ§in
 	
 	
 	ifstream OgrenciDosyasi("Ogrenci.txt");
@@ -248,7 +248,7 @@ void ogrenciGuncelle(int ogrenciNo)
 
 	if (!OgrenciDosyasi.is_open() || !Ogrenci_Temp.is_open())
 	{
-		cout << "Güncellemek için dosya acilamadi";
+		cout << "GÃ¼ncellemek iÃ§in dosya acilamadi";
 		return;
 	}
 
@@ -264,19 +264,19 @@ void ogrenciGuncelle(int ogrenciNo)
 			}
 			else {
 
-				// Öðrenci bulundu, güncelleme iþlemi yapýlacak
+				// Ã–Ã°renci bulundu, gÃ¼ncelleme iÃ¾lemi yapÃ½lacak
 				ogrenciBulundu = true;
 
-				cout << "Güncellediðiniz kiþinin adýný giriniz= ";
+				cout << "GÃ¼ncellediÃ°iniz kiÃ¾inin adÃ½nÃ½ giriniz= ";
 				cin >> isim;
 				cout << endl;
 
 
-				cout << "Güncellediðiniz kiþinin soyadýný giriniz= ";
+				cout << "GÃ¼ncellediÃ°iniz kiÃ¾inin soyadÃ½nÃ½ giriniz= ";
 				cin >> soyisim;
 				cout << endl;
 
-				cout << "Güncellediðiniz kiþinin TC'sini giriniz=";
+				cout << "GÃ¼ncellediÃ°iniz kiÃ¾inin TC'sini giriniz=";
 				cin >> ogrenciTc;
 
 				Ogrenci_Temp << No << '#' << isim << '#' << soyisim << '#' << ogrenciTc << "\n";
@@ -285,17 +285,17 @@ void ogrenciGuncelle(int ogrenciNo)
 	}
 
 	if (!ogrenciBulundu) {
-		cout << "Öðrenci bulunamadý." << endl;
+		cout << "Ã–Ã°renci bulunamadÃ½." << endl;
 	}
 	else {
-		// Öðrenci bulunduysa dosyalarý güncelle
+		// Ã–Ã°renci bulunduysa dosyalarÃ½ gÃ¼ncelle
 
 		OgrenciDosyasi.close();
 		Ogrenci_Temp.close();
 		remove("Ogrenci.txt");
 		rename("Ogrenci_Temp.txt", "Ogrenci.txt");
 
-		cout << "Öðrenci baþarýyla güncellendi." << endl;
+		cout << "Ã–Ã°renci baÃ¾arÃ½yla gÃ¼ncellendi." << endl;
 	}
 }
 
@@ -304,12 +304,12 @@ void ogrenciGuncelle(int ogrenciNo)
 
 void ogrenciListesi()
 {
-	cout << "\t \t \t----------- 5) Öðrenci Listesi -----------" << endl << endl;
+	cout << "\t \t \t----------- 5) Ã–Ã°renci Listesi -----------" << endl << endl;
 	string satir, ogrenciNo, isim, soyisim, ogrenciTc;
 	ifstream OgrenciDosyasi("Ogrenci.txt");
 	if (!OgrenciDosyasi.is_open())
 	{
-		cout << " Liste için dosya Açýlamadý! ";
+		cout << " Liste iÃ§in dosya AÃ§Ã½lamadÃ½! ";
 		return;
 	}
 	while (getline(OgrenciDosyasi, satir))
@@ -333,17 +333,17 @@ void ogrenciListesi()
 
 void ogrenciAra(string ogrenciAdi, string ogrenciSoyadi)
 {
-	cout << "\t \t \t-----------1)Öðrenci Arama Ekraný-----------" << endl << endl;
+	cout << "\t \t \t-----------1)Ã–Ã°renci Arama EkranÃ½-----------" << endl << endl;
 	ifstream OgrenciDosyasi("Ogrenci.txt");
 	string satir, ogrenciNo, isim, soyisim, ogrenciTc;
 
 	if (!OgrenciDosyasi.is_open()) {
-		cout << "Dosya arama yapmak için açýlamadý. ";
+		cout << "Dosya arama yapmak iÃ§in aÃ§Ã½lamadÃ½. ";
 		return;
 	}
 
 
-	bool arandý = false;
+	bool arandÃ½ = false;
 	cout << "ogrenciNo\tAd\tSoyad\togrenciTc\n";
 	while (getline(OgrenciDosyasi, satir)) {
 		if (satir != "") {
@@ -355,15 +355,15 @@ void ogrenciAra(string ogrenciAdi, string ogrenciSoyadi)
 
 			if (isim == ogrenciAdi && soyisim == ogrenciSoyadi) {
 				cout << ogrenciNo << "\t\t" << isim << "\t" << soyisim << "\t" << ogrenciTc << "\n \n";
-				arandý = true;
+				arandÃ½ = true;
 			}
 
 		}
 
 	}
 
-	if (!arandý) {
-		cout << "Arama iþleminde hata oluþtu." << endl;
+	if (!arandÃ½) {
+		cout << "Arama iÃ¾leminde hata oluÃ¾tu." << endl;
 	}
 
 	OgrenciDosyasi.close();
@@ -376,7 +376,7 @@ void ogrenciNotEkle(int ogrenciNo)
 	ofstream NotDosyasi("Notlar.txt", ios::app);
 
 	if (!OgrenciDosyasi.is_open() || !NotDosyasi.is_open()) {
-		cout << "Dosya açýlamadý!";
+		cout << "Dosya aÃ§Ã½lamadÃ½!";
 		return;
 	}
 
@@ -403,7 +403,7 @@ void ogrenciNotEkle(int ogrenciNo)
 		cout << endl;
 		cout << "Final notunu giriniz: ";
 		cin >> final;
-		cout << "Bütünleme notunu giriniz (yoksa -1 giriniz): ";
+		cout << "BÃ¼tÃ¼nleme notunu giriniz (yoksa -1 giriniz): ";
 		cin >> butunleme;
 
 		double ortalama;
@@ -416,10 +416,10 @@ void ogrenciNotEkle(int ogrenciNo)
 			ortalama = (vize * 0.4) + (butunleme * 0.6);
 		}
 		NotDosyasi << ogrenciNo << '#' << ogrenciAdi << '#' << ogrenciSoyadi << '#' << vize << '#' << final << '#' << butunleme << '#' << ortalama << "\n";
-		cout << "Notlar baþarýyla eklendi." << endl;
+		cout << "Notlar baÃ¾arÃ½yla eklendi." << endl;
 	}
 	else {
-		cout << "Not girmek için öðrenci bulunamadý." << endl;
+		cout << "Not girmek iÃ§in Ã¶Ã°renci bulunamadÃ½." << endl;
 	}
 
 	OgrenciDosyasi.close();
@@ -433,11 +433,11 @@ void ogrenciNotListesi() {
 	ifstream NotDosyasi("Notlar.txt");
 
 	if (!NotDosyasi.is_open()) {
-		cout << "Not eklemek için dosya açýlamadý!";
+		cout << "Not eklemek iÃ§in dosya aÃ§Ã½lamadÃ½!";
 		return;
 	}
 
-	cout << "Öðrenci No\tÝsim\t Soyisim\tVize\t\tFinal\t\tBütünleme\tOrtalama\n";
+	cout << "Ã–Ã°renci No\tÃsim\t Soyisim\tVize\t\tFinal\t\tBÃ¼tÃ¼nleme\tOrtalama\n";
 	while (getline(NotDosyasi, satir)) {
 		if (satir != "") {
 			istringstream iss(satir);
@@ -461,7 +461,7 @@ void ogrenciNotGuncelle(int ogrenciNo) {
 	ofstream NotDosyasi_Temp("Notlar_Temp.txt");
 
 	if (!NotDosyasi.is_open() || !NotDosyasi_Temp.is_open()) {
-		cout << "Dosya açýlamadý!";
+		cout << "Dosya aÃ§Ã½lamadÃ½!";
 		return;
 	}
 
@@ -482,14 +482,14 @@ void ogrenciNotGuncelle(int ogrenciNo) {
 			ogrenciyiBuldu = true;
 			cout << "Mevcut Vize Notu: " << vize << endl;
 			cout << "Mevcut Final Notu: " << final << endl;
-			cout << "Mevcut Bütünleme Notu: " << butunleme << endl;
+			cout << "Mevcut BÃ¼tÃ¼nleme Notu: " << butunleme << endl;
 
 			cout << "Yeni Vize notunu giriniz: ";
 			cin >> vize;
 			cout << endl;
 			cout << "Yeni Final notunu giriniz: ";
 			cin >> final;
-			cout << "Yeni Bütünleme notunu giriniz (yoksa -1 giriniz): ";
+			cout << "Yeni BÃ¼tÃ¼nleme notunu giriniz (yoksa -1 giriniz): ";
 			cin >> butunleme;
 
 			double yeniOrtalama;
@@ -508,7 +508,7 @@ void ogrenciNotGuncelle(int ogrenciNo) {
 	}
 
 	if (!ogrenciyiBuldu) {
-		cout << "Güncellemek için öðrenci bulunamadý." << endl;
+		cout << "GÃ¼ncellemek iÃ§in Ã¶Ã°renci bulunamadÃ½." << endl;
 	}
 
 	NotDosyasi.close();
@@ -522,15 +522,15 @@ void anaMenu()
 {
 	system("cls");
 
-	cout << "\t \t \t \t1.Öðrenci Ekleme " << endl;
-	cout << "\t \t \t \t2.Öðrenci Silme  " << endl;
-	cout << "\t \t \t \t3.Öðrenci Bilgilerini Düzenleme" << endl;
-	cout << "\t \t \t \t4.Öðrenci Arama " << endl;
-	cout << "\t \t \t \t5.Öðrenci Listesi " << endl;
-	cout << "\t \t \t \t6. Öðrenci Not Ekleme" << endl;
-	cout << "\t \t \t \t7. Öðrenci Not Listesi" << endl;
-	cout << "\t \t \t \t8. Öðrenci Not Güncelleme" << endl;
-	cout << "\t \t \t \t9. Sistemden Çýkýþ " << endl << endl;
+	cout << "\t \t \t \t1.Ã–Ã°renci Ekleme " << endl;
+	cout << "\t \t \t \t2.Ã–Ã°renci Silme  " << endl;
+	cout << "\t \t \t \t3.Ã–Ã°renci Bilgilerini DÃ¼zenleme" << endl;
+	cout << "\t \t \t \t4.Ã–Ã°renci Arama " << endl;
+	cout << "\t \t \t \t5.Ã–Ã°renci Listesi " << endl;
+	cout << "\t \t \t \t6. Ã–Ã°renci Not Ekleme" << endl;
+	cout << "\t \t \t \t7. Ã–Ã°renci Not Listesi" << endl;
+	cout << "\t \t \t \t8. Ã–Ã°renci Not GÃ¼ncelleme" << endl;
+	cout << "\t \t \t \t9. Sistemden Ã‡Ã½kÃ½Ã¾ " << endl << endl;
 
 
 	int ogrenciNo;
@@ -541,7 +541,7 @@ void anaMenu()
 
 
 	int islem = 0;
-	cout << "\t \t  Lütfen yapmak istediðiniz iþlemin numarasýný girin = ";
+	cout << "\t \t  LÃ¼tfen yapmak istediÃ°iniz iÃ¾lemin numarasÃ½nÃ½ girin = ";
 	cin >> islem;
 	cout << endl;
 
@@ -563,18 +563,18 @@ void anaMenu()
 
 	case 3:
 	{
-		cout << "Güncellemek istediðiniz öðrencinin numarasýný giriniz: ";
+		cout << "GÃ¼ncellemek istediÃ°iniz Ã¶Ã°rencinin numarasÃ½nÃ½ giriniz: ";
 		cin >> ogrenciNo;
 		ogrenciGuncelle(ogrenciNo);
 		break;
 	}
 
 	case 4: {
-		cout << "Aranacak öðrencinin adýný giriniz: ";
+		cout << "Aranacak Ã¶Ã°rencinin adÃ½nÃ½ giriniz: ";
 		cin.ignore();
 		getline(cin, ogrenciAdi);
 
-		cout << "Aranacak öðrencinin soyadýný giriniz: ";
+		cout << "Aranacak Ã¶Ã°rencinin soyadÃ½nÃ½ giriniz: ";
 		getline(cin, ogrenciSoyadi);
 
 		ogrenciAra(ogrenciAdi, ogrenciSoyadi);
@@ -590,7 +590,7 @@ void anaMenu()
 	}
 	case 6:
 	{
-		cout << "Notunu eklemek istediðiniz öðrencinin numarasýný giriniz: ";
+		cout << "Notunu eklemek istediÃ°iniz Ã¶Ã°rencinin numarasÃ½nÃ½ giriniz: ";
 		cin >> ogrenciNo;
 		ogrenciNotEkle(ogrenciNo);
 		break;
@@ -602,7 +602,7 @@ void anaMenu()
 	}
 	case 8:
 	{
-		cout << "Notlarýný güncellemek istediðiniz öðrencinin numarasýný giriniz: ";
+		cout << "NotlarÃ½nÃ½ gÃ¼ncellemek istediÃ°iniz Ã¶Ã°rencinin numarasÃ½nÃ½ giriniz: ";
 		cin >> ogrenciNo;
 		ogrenciNotGuncelle(ogrenciNo);
 		break;
@@ -610,11 +610,11 @@ void anaMenu()
 	}
 	case 9:
 	{
-		cout << "Çýkýþ yönlendiriliyor." << endl;
+		cout << "CÄ±kÄ±sa yÃ¶nlendiriliyor." << endl;
 		break;
 	}
 	default:
-		cout << "Geçersiz seçim." << endl;
+		cout << "GeÃ§ersiz seÃ§im." << endl;
 		break;
 	}
 
@@ -626,12 +626,12 @@ void girisEkrani()
 
 	cout << "\t \t \t&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\t \t \t" << endl;
 	cout << "\t \t \t&&                                 &&\t \t \t" << endl;
-	cout << "\t \t \t&&  ÖÐRENCÝ BÝLGÝ YÖNETÝM SÝSTEMÝ  &&\t \t \t" << endl;
+	cout << "\t \t \t&&  Ã–ÃRENCÃ BÃLGÃ YÃ–NETÃM SÃSTEMÃ  &&\t \t \t" << endl;
 	cout << "\t \t \t&&                                 &&\t \t \t" << endl;
 	cout << "\t \t \t&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& \t \t \t" << endl << endl;
 
-	cout << "\t\t\t    _Öðrenci Sistemine Hoþ Geldiniz_" << endl << endl;
-	cout << "\t\t\t   | Giriþ yapmak için Enter'a basýnýz.|" << endl << endl;
+	cout << "\t\t\t    _Ã–Ã°renci Sistemine HoÃ¾ Geldiniz_" << endl << endl;
+	cout << "\t\t\t   | GiriÃ¾ yapmak iÃ§in Enter'a basÃ½nÃ½z.|" << endl << endl;
 
 
 	cin.get();
